@@ -20,7 +20,7 @@ class ServiceChoiceList extends Component{
     render(){
         return(
             <div>
-                <h1>Service recherché : </h1>
+                <p>Service recherché : </p>
                 <select>
                     {this.renderService()}
                 </select>
