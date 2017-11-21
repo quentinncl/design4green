@@ -1,6 +1,6 @@
 var webpack = require('webpack');
 var CompressionPlugin = require('compression-webpack-plugin');
-var HTMLCompressionPlugin = require('html-compression-webpack-plugin');
+// var HTMLCompressionPlugin = require('html-compression-webpack-plugin');
 
 module.exports = {
     entry: [
@@ -33,14 +33,15 @@ module.exports = {
             asset: "[path].gz[query]",
             algorithm: "gzip",
             test: /\.js$|\.css$|\.html$/
-        }),
+        })
+        /*,
         new HTMLCompressionPlugin({
             testHTML: /\.html$/,
             test: /.*\.(css|js|html)$/i,
             asset: '[path].gz',
             algorithm: 'gzip',
             deleteOriginalAssets: true
-        })
+        })*/
     ],
     resolve: {
         extensions: ['', '.js', '.jsx']
