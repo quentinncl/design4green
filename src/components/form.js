@@ -3,10 +3,10 @@ import {Field, reduxForm} from 'redux-form';
 import {Link} from 'react-router-dom';
 
 import {connect} from 'react-redux';
-import {createPost} from '../actions/index';
+import {createDentists} from '../actions/index';
 
 
-class Form extends Component {
+class FormDentists extends Component {
 
     constructor (props) {
         super(props);
@@ -94,14 +94,11 @@ function validate(values) {
     const errors = {};
 
     //Validate the input from values
-    if (!values.title || values.title.length < 3) {
-        errors.title = "Enter a title that is at least 3 characters";
+    if (!values.lastname || values.lastname.length < 3) {
+        errors.lastname = "Enter a lastname that is at least 3 characters";
     }
-    if (!values.categories) {
-        errors.categories = "Enter a categorie";
-    }
-    if (!values.content) {
-        errors.content = "Enter a content";
+    if (!values.cities) {
+        errors.cities = "Enter a categorie";
     }
 
     return errors;
@@ -113,5 +110,5 @@ export default reduxForm({
     validate,
     form: 'PostNewForm'
 })(
-    connect(null, {createPost})(Form)
+    connect(null,{ createDentists })(FormDentists)
 );

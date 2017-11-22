@@ -1,9 +1,9 @@
 import _ from 'lodash';
-import {FETCH_POSTS} from "../actions";
+import {FETCH_DENTISTS} from "../actions";
 
 export default function(state = {}, action){
     switch (action.type){
-        case FETCH_POSTS:
+        case FETCH_DENTISTS:
             /*
                 mapKeys va permettre d'extraire l'ID définit
                 dans posts et le mettre en tant que clé dans
