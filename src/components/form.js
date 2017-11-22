@@ -8,18 +8,6 @@ import {createPost} from '../actions/index';
 
 class Form extends Component {
 
-    constructor (props) {
-        super(props);
-
-        this.state={days:[{label:'Monday', value:'monday'},
-            {label:'Tuesday', value: 'tuesday'},
-            {label:'Wednesday', value:'wednesday'},
-            {label:'Thursday', value:'thursday'},
-            {label:'Friday', value:'friday'},
-            {label:'Saturday', value:'saturday'},
-            {label:'Sunday', value:'sunday'}]};
-    }
-
     renderField(field) {
 
         const {meta: {touched, error}} = field;
