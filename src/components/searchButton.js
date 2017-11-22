@@ -7,7 +7,7 @@ class SearchButton extends Component{
     render(){
         return(
             <div>
-                <input type="submit">Rechercher</input>
+                <input type="submit" value="Rechercher"></input>
             </div>
         );
     }
