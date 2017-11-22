@@ -8,7 +8,7 @@ const API_KEY = '?key=MYKEY2611';
 
 export function fetchDentists(){
 
-    const request = axios.get(`${ROOT_URL}/posts${API_KEY}`);
+    //const request = axios.get(`${ROOT_URL}/posts${API_KEY}`);
 
     return {
         type: FETCH_DENTISTS,
@@ -18,8 +18,8 @@ export function fetchDentists(){
 
 export function createDentists(values, callback){
 
-    const request = axios.post(`${ROOT_URL}/posts${API_KEY}`, values)
-        .then(()=> callback());
+    /*const request = axios.post(`${ROOT_URL}/posts${API_KEY}`, values)
+        .then(()=> callback());*/
 
     return{
         type: CREATE_DENTISTS,
