@@ -30,7 +30,7 @@ class Form extends Component {
                 <label>{field.label} </label>
                 <input
                     className="form-control"
-                    type="text"
+                    type={field.type}
                     {...field.input}
                 />
                 <div className="text-help">
@@ -60,33 +60,27 @@ class Form extends Component {
                 <Field
                     label="Last Name"
                     name="lastname"
+                    type="text"
                     component={this.renderField}
                 />
                 <Field
                     label="City"
                     name="city"
+                    type="text"
                     component={this.renderField}
                 />
                 <Field
                     label="Speciality"
                     name="speciality"
+                    type="text"
                     component={this.renderField}
                 />
-                <div>
-                    <label>Openings</label>
-                    <Field
-                        name="openings"
-                        component="select">
-
-                        <option value="monday">Monday</option>
-                        <option value="tuesday">Tuesday</option>
-                        <option value="wednesday">Wednesday</option>
-                        <option value="thursday">Thursday</option>
-                        <option value="friday">Friday</option>
-                        <option value="saturday">Saturday</option>
-                        <option value="sunday">Sunday</option>
-                    </Field>
-                </div>
+                <Field
+                    label="Openings"
+                    name="openings"
+                    type="date"
+                    component={this.renderField}
+                />
 
                 <button type="submit" className="btn btn-primary">Submit</button>
                 <Link className="btn btn-danger" to="/">Cancel</Link>
