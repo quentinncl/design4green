@@ -3,49 +3,19 @@ import _ from 'lodash';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {fetchPosts} from "../actions/index";
+import Form from './form';
 
-class PostIndex extends Component {
-
-    componentDidMount(){
-        this.props.fetchPosts();
-    }
-
-    renderPosts(){
-       return  _.map(this.props.posts, post => {
-           return(
-               <li className="list-group-item" key={post.id}>
-                   {post.title}
-               </li>
-           )
-       });
-    }
+class App extends Component {
 
     render(){
         return(
             <div>
-                <div className="text-xs-right">
-                    <Link className="btn btn-primary" to="/posts/new">
-                        New Post
-                    </Link>
-                </div>
-                <h3>Posts</h3>
-                <ul className="list-group">
-                    {this.renderPosts()}
-                </ul>
+                <h1>Adopte Un Dentiste</h1>
+                <h2> Trouvez le dentiste qui vous correspond ! </h2>
+                <Form/>
             </div>
         );
     }
 }
 
-function mapStateToProps(state){
-    return {posts: state.posts};
-}
-
-export default connect(mapStateToProps, { fetchPosts })(PostIndex);
-/*
-    <=>
-    function mapDispathToProps(){
-        return {fetchPosts: fetchPosts}
-    }
-    export default connect(mapStateToProps,mapDispathToProps)(PostsIndex);
- */
+export default App;

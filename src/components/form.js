@@ -6,7 +6,19 @@ import {connect} from 'react-redux';
 import {createPost} from '../actions/index';
 
 
-class PostsNew extends Component {
+class Form extends Component {
+
+    constructor (props) {
+        super(props);
+
+        this.state={days:[{label:'Monday', value:'monday'},
+            {label:'Tuesday', value: 'tuesday'},
+            {label:'Wednesday', value:'wednesday'},
+            {label:'Thursday', value:'thursday'},
+            {label:'Friday', value:'friday'},
+            {label:'Saturday', value:'saturday'},
+            {label:'Sunday', value:'sunday'}]};
+    }
 
     renderField(field) {
 
@@ -28,34 +40,54 @@ class PostsNew extends Component {
         )
     }
 
-    onSubmit(values) {
-        this.props.createPost(values, () => {
-            this.props.history.push('/');
-        });
+    /* OPTIMISATION */
+    renderOptions() {
+        return (
+            this.state.days.map(function(day) {
+               return <option value={day.value}>{day.label}</option>;
+            })
+        )
     }
+    /****************/
 
     render() {
 
-        const {handleSubmit} = this.props;
+        //const {handleSubmit} = this.props;
         //this.props -> ensemble de propriété données par reduxForm
 
         return (
-            <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+            <form>
                 <Field
-                    label="Title"
-                    name="title"
+                    label="Last Name"
+                    name="lastname"
                     component={this.renderField}
                 />
                 <Field
-                    label="Categories"
-                    name="categories"
+                    label="City"
+                    name="city"
                     component={this.renderField}
                 />
                 <Field
-                    label="Post Content"
-                    name="content"
+                    label="Speciality"
+                    name="speciality"
                     component={this.renderField}
                 />
+                <div>
+                    <label>Openings</label>
+                    <Field
+                        name="openings"
+                        component="select">
+
+                        <option value="monday">Monday</option>
+                        <option value="tuesday">Tuesday</option>
+                        <option value="wednesday">Wednesday</option>
+                        <option value="thursday">Thursday</option>
+                        <option value="friday">Friday</option>
+                        <option value="saturday">Saturday</option>
+                        <option value="sunday">Sunday</option>
+                    </Field>
+                </div>
+
                 <button type="submit" className="btn btn-primary">Submit</button>
                 <Link className="btn btn-danger" to="/">Cancel</Link>
             </form>
@@ -80,12 +112,12 @@ function validate(values) {
 
     return errors;
     //if we return an empty object : all is good
-    //else we return the erros
+    //else we return the errors
 }
 
 export default reduxForm({
     validate,
-    form: 'PostsNewForm'
+    form: 'PostNewForm'
 })(
-    connect(null,{ createPost })(PostsNew)
+    connect(null, {createPost})(Form)
 );
