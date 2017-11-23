@@ -1,3 +1,9 @@
-form a {
-    margin: 0 0 0 5px;
+body {
+    padding: 40px 0 40px 0;
+    background-color: #eee;
+}
+
+.selectSpec{
+    width: 100%;
+    display: block;
 }

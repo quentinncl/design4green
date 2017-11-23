@@ -11,21 +11,43 @@ class FormDentists extends Component {
     renderField(field) {
 
         const {meta: {touched, error}} = field;
-        const className = `form-group ${touched && error ? 'has-danger' : ''}`;
-
-        return (
-            <div className={className}>
-                <label>{field.label} </label>
-                <input
-                    className="form-control"
-                    type={field.type}
-                    {...field.input}
-                />
-                <div className="text-help">
-                    {touched ? error : ""}
+        const className = `form-group ${touched && error ? 'has-danger' : ''} bd-example`;
+        console.log(field.label);
+        if (field.label=='Speciality'){
+            return (
+                <div className={className}>
+                    <label>{field.label} </label>
+                    <select className="selectSpec custom-select">
+                        <option selected>Select a speciality</option>
+                        <option value="0">Pediatric Dentistry</option>
+                        <option value="2">Oral and Maxillofaciel Radiology</option>
+                        <option value="3">Endodontics</option>
+                        <option value="4">Dental Public Health</option>
+                        <option value="5">Peridontics</option>
+                        <option value="6">Oral and Maxillofacial Pathology</option>
+                        <option value="7">Oral and Maxillofacial Surgery</option>
+                        <option value="8">Prosthodontics</option>
+                        <option value="9">Orthodontics and Dentofacial Orthopedics</option>
+                        <option value="1">Unknown</option>
+                    </select>
                 </div>
-            </div>
-        )
+            );
+        }
+        else {
+            return (
+                <div className={className}>
+                    <label>{field.label} </label>
+                    <input
+                        className="form-control"
+                        type={field.type}
+                        {...field.input}
+                    />
+                    <div className="text-help">
+                        {touched ? error : ""}
+                    </div>
+                </div>
+            )
+        }
     }
 
     /* OPTIMISATION */
