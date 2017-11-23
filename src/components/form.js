@@ -11,13 +11,13 @@ class FormDentists extends Component {
     renderField(field) {
 
         const {meta: {touched, error}} = field;
-        const className = `form-group ${touched && error ? 'has-danger' : ''} bd-example`;
+        const className = `form-group ${touched && error ? 'has-danger' : ''}`;
         console.log(field.label);
         if (field.label=='Speciality'){
             return (
                 <div className={className}>
                     <label>{field.label} </label>
-                    <select className="selectSpec custom-select">
+                    <select className="form-control custom-select">
                         <option selected>Select a speciality</option>
                         <option value="0">Pediatric Dentistry</option>
                         <option value="2">Oral and Maxillofaciel Radiology</option>
