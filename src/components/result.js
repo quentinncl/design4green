@@ -26,19 +26,11 @@ class Result extends Component {
 
     render() {
 
-        if (!this.props.dentists[0]) {
-            return <div>Loading...</div>
-        } else {
-            //console.log(this.props.dentists[0].email);
-            return <div>Hello {this.props.dentists[0].email}</div>
-        }
-
-
-        const fullName = this.props.data.firstName + " " + this.props.data.lastName;
+        const fullName = this.props.data.first_name + " " + this.props.data.last_name;
         const currDay = (new Date()).getDay();
-        var currDayOpenings = "Today : ";
+        let currDayOpenings = "Today : ";
 
-        if (!this.props.data.openings.equals("Unknown")) {
+        if (!this.props.data.openings == "Unknown") {
 
             switch (currDay) {
                 case 1:
@@ -92,8 +84,6 @@ class Result extends Component {
     }
 }
 
-function mapStateToProps({dentists}) {
-    return {dentists: dentists}
-}
 
-export default connect(mapStateToProps)(Result);
+
+export default Result;

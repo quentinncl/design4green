@@ -1,43 +1,22 @@
 import React, {Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
-import {Link} from 'react-router-dom';
 
 import {connect} from 'react-redux';
-import {createDentists} from '../actions/index';
+import {fetchDentistsLastName} from '../actions/index';
 
+import ListResult from './listResults';
 
 class FormDentists extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
 
-        this.renderOptions = this.renderOptions.bind(this);
         this.renderField = this.renderField.bind(this);
     }
-
-    renderOptions(){
-        const test = [
-            {id:"0", value:"Pediatric Dentistry"},
-            {id:"1", value:"Unknown"},
-            {id:"2",value:"Oral and Maxillofacial Radiology"},
-            {id:"3",value:"Endodontics"},
-            {id:"4",value:"Dental Public Health"},
-            {id:"5",value:"Periodontics"},
-            {id:"6",value:"Oral and Maxillofacial Pathology"},
-            {id:"7",value:"Oral and Maxillofacial Surgery"},
-            {id:"8",value:"Prosthodontics"},
-            {id:"9",value:"Orthodontics and Dentofacial Orthopedics"}
-        ];
-
-        return test.map((specialty)=>{
-            console.log(specialty);
-             return <option>Plop</option>
-        });
-    }
-
+    
     renderField(field) {
         const className = `form-group`;
 
-        if (field.label=="Speciality"){
+        if (field.label == "Speciality") {
             return (
                 <div className={className}>
                     <label>{field.label} </label>
@@ -71,53 +50,47 @@ class FormDentists extends Component {
         }
     }
 
-    /* OPTIMISATION */
-    /*
-    renderOptions() {
-        return (
-            this.state.days.map(function(day) {
-               return <option value={day.value}>{day.label}</option>;
-            })
-        )
+    onSubmit(values) {
+        this.props.fetchDentistsLastName(values);
     }
-    */
-    /****************/
 
     render() {
 
-        //const {handleSubmit} = this.props;
+        const {handleSubmit} = this.props;
         //this.props -> ensemble de propriété données par reduxForm
 
         return (
-            <form>
+            <div>
                 <h1>Adoptez un dentiste !</h1>
-                <Field
-                    label="Last Name"
-                    name="lastname"
-                    type="text"
-                    component={this.renderField}
-                />
-                <Field
-                    label="City"
-                    name="city"
-                    type="text"
-                    component={this.renderField}
-                />
-                <Field
-                    label="Speciality"
-                    name="speciality"
-                    type="text"
-                    component={this.renderField}
-                />
-                <Field
-                    label="Openings"
-                    name="openings"
-                    type="date"
-                    component={this.renderField}
-                />
-
-                <button type="submit" className="btn btn-primary">Submit</button>
-            </form>
+                <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+                    <Field
+                        label="Last Name"
+                        name="lastname"
+                        type="text"
+                        component={this.renderField}
+                    />
+                    <Field
+                        label="City"
+                        name="city"
+                        type="text"
+                        component={this.renderField}
+                    />
+                    <Field
+                        label="Speciality"
+                        name="speciality"
+                        type="text"
+                        component={this.renderField}
+                    />
+                    <Field
+                        label="Openings"
+                        name="openings"
+                        type="date"
+                        component={this.renderField}
+                    />
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                </form>
+                <ListResult/>
+            </div>
         )
     }
 }
@@ -131,7 +104,7 @@ function validate(values) {
         errors.lastname = "Enter a lastname that is at least 3 characters";
     }
     if (!values.cities) {
-        errors.cities = "Enter a categorie";
+        errors.cities = "Enter a city";
     }
 
     return errors;
@@ -143,5 +116,5 @@ export default reduxForm({
     validate,
     form: 'PostNewForm'
 })(
-    connect(null,{ createDentists })(FormDentists)
+    connect(null, {fetchDentistsLastName})(FormDentists)
 );
