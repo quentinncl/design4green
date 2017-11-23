@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import Form from './form';
+import FormDentists from './form';
 import ListResults from "./listResults";
 
 class App extends Component {
@@ -10,8 +10,8 @@ class App extends Component {
             <div class="container">
                 <h1>Adopte Un Dentiste</h1>
                 <h3> Trouvez le dentiste qui vous correspond ! </h3>
-                <Form/>
-                <p>--------------------------------------------</p>
+                <FormDentists/>
+                <p>----------------------------------</p>
                 <ListResults/>
             </div>
         );

@@ -8,16 +8,15 @@ import {createDentists} from '../actions/index';
 
 class FormDentists extends Component {
 
-    static renderField(field) {
+    renderField(field) {
         const {meta: {touched, error}} = field;
         const className = `form-group ${touched && error ? 'has-danger' : ''}`;
-        console.log(field.label);
-        if (field.label=='Speciality'){
+
+        if (field.label.equals("Speciality")) {
             return (
                 <div className={className}>
                     <label>{field.label} </label>
                     <select className="form-control custom-select">
-                        <option selected>Select a speciality</option>
                         <option value="0">Pediatric Dentistry</option>
                         <option value="2">Oral and Maxillofaciel Radiology</option>
                         <option value="3">Endodontics</option>
@@ -45,26 +44,14 @@ class FormDentists extends Component {
                         {touched ? error : ""}
                     </div>
                 </div>
-            )
+            );
         }
     }
 
-    /* OPTIMISATION */
-    /*renderOptions() {
-        return (
-            this.state.days.map(function(day) {
-               return <option value={day.value}>{day.label}</option>;
-            })
-        )
-    }*/
-    /****************/
-
     render() {
 
-        //const {handleSubmit} = this.props;
-        //this.props -> ensemble de propriété données par reduxForm
-
         return (
+            <div>
             <form>
                 <Field
                     label="Last Name"
@@ -93,7 +80,9 @@ class FormDentists extends Component {
 
                 <button type="submit" className="btn btn-primary">Submit</button>
                 <Link className="btn btn-danger" to="/">Cancel</Link>
+
             </form>
+            </div>
         )
     }
 }
@@ -104,10 +93,10 @@ function validate(values) {
 
     //Validate the input from values
     if (!values.lastname || values.lastname.length < 3) {
-        errors.lastname = "Enter a lastname that is at least 3 characters";
+        errors.lastname = "Enter a last name that is at least 3 characters";
     }
     if (!values.cities) {
-        errors.cities = "Enter a categorie";
+        errors.cities = "Enter a category";
     }
 
     return errors;
