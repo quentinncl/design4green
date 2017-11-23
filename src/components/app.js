@@ -11,7 +11,6 @@ class App extends Component {
         return(
             <div class="container">
                 <h1>Adopte Un Dentiste</h1>
-                <h3> Trouvez le dentiste qui vous correspond ! </h3>
                 <Form/>
             </div>
         );

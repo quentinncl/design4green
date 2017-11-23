@@ -2,6 +2,7 @@
  * Created by Mélanie GEFFRE on 21/11/2017.
  */
 import React, {Component} from 'react';
+import Adresse from './adresse';
 
 class ResultLine extends Component{
     constructor(props){
@@ -12,9 +13,9 @@ class ResultLine extends Component{
         return(
             <div>
                 <h4>{this.state.name}</h4>
-                <p>{this.state.adresse}</p>
+                <Adresse/>
                 <p>{this.state.telephone}</p>
-                <p>{this.state.horaires}</p>
+                <p>{this.state.horaires}</p> /** ça depend de la forme des données récupérables. */
                 <a>Trouver sur la carte !</a>
             </div>
         );

@@ -35,9 +35,7 @@ class FormDentists extends Component {
     }
 
     renderField(field) {
-
-        const {meta: {touched, error}} = field;
-        const className = `form-group ${touched && error ? 'has-danger' : ''}`;
+        const className = `form-group`;
 
         if (field.label=='Speciality'){
             return (
@@ -68,9 +66,6 @@ class FormDentists extends Component {
                         type={field.type}
                         {...field.input}
                     />
-                    <div className="text-help">
-                        {touched ? error : ""}
-                    </div>
                 </div>
             )
         }
@@ -121,7 +116,6 @@ class FormDentists extends Component {
                 />
 
                 <button type="submit" className="btn btn-primary">Submit</button>
-                <Link className="btn btn-danger" to="/">Cancel</Link>
             </form>
         )
     }
