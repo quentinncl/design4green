@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {Link} from 'react-router-dom';
 
+import Result from './result';
+
 import {connect} from 'react-redux';
 import {fetchDentistsLastName} from '../actions/index';
-
 
 class PostsNew extends Component {
 
@@ -34,9 +35,9 @@ class PostsNew extends Component {
 
     render() {
         const {handleSubmit} = this.props;
-        //this.props -> ensemble de propriété données par reduxForm
-        //console.log(this.props);
-        return (<form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+
+        return (<div>
+                <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
                     <Field
                         label="Last Name"
                         name="lastname"
@@ -45,6 +46,8 @@ class PostsNew extends Component {
                     <button type="submit" className="btn btn-primary">Submit</button>
                     <Link className="btn btn-danger" to="/">Cancel</Link>
                 </form>
+                <Result/>
+            </div>
         )
     }
 }
@@ -63,14 +66,9 @@ function validate(values) {
     //else we return the erros
 }
 
-
-function mapStateToProps({dentist}){
-    return {dentist:dentist};
-}
-
 export default reduxForm({
     form: 'PostsNewForm',
     validate
 })(
-    connect(mapStateToProps,{ fetchDentistsLastName })(PostsNew)
+    connect(null, {fetchDentistsLastName})(PostsNew)
 );
