@@ -3,7 +3,7 @@ import {Field, reduxForm} from 'redux-form';
 import {Link} from 'react-router-dom';
 
 import {connect} from 'react-redux';
-import {createPost} from '../actions/index';
+import {fetchDentistsLastName} from '../actions/index';
 
 
 class PostsNew extends Component {
@@ -29,36 +29,22 @@ class PostsNew extends Component {
     }
 
     onSubmit(values) {
-        this.props.createPost(values, () => {
-            this.props.history.push('/');
-        });
+        this.props.fetchDentistsLastName(values);
     }
 
     render() {
-
         const {handleSubmit} = this.props;
         //this.props -> ensemble de propriété données par reduxForm
-
-        return (
-            <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-                <Field
-                    label="Title"
-                    name="title"
-                    component={this.renderField}
-                />
-                <Field
-                    label="Categories"
-                    name="categories"
-                    component={this.renderField}
-                />
-                <Field
-                    label="Post Content"
-                    name="content"
-                    component={this.renderField}
-                />
-                <button type="submit" className="btn btn-primary">Submit</button>
-                <Link className="btn btn-danger" to="/">Cancel</Link>
-            </form>
+        //console.log(this.props);
+        return (<form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+                    <Field
+                        label="Last Name"
+                        name="lastname"
+                        component={this.renderField}
+                    />
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                    <Link className="btn btn-danger" to="/">Cancel</Link>
+                </form>
         )
     }
 }
@@ -68,14 +54,8 @@ function validate(values) {
     const errors = {};
 
     //Validate the input from values
-    if (!values.title || values.title.length < 3) {
-        errors.title = "Enter a title that is at least 3 characters";
-    }
-    if (!values.categories) {
-        errors.categories = "Enter a categorie";
-    }
-    if (!values.content) {
-        errors.content = "Enter a content";
+    if (!values.lastname || values.lastname.length < 3) {
+        errors.lastname = "Enter a title that is at least 3 characters";
     }
 
     return errors;
@@ -83,9 +63,14 @@ function validate(values) {
     //else we return the erros
 }
 
+
+function mapStateToProps({dentist}){
+    return {dentist:dentist};
+}
+
 export default reduxForm({
-    validate,
-    form: 'PostsNewForm'
+    form: 'PostsNewForm',
+    validate
 })(
-    connect(null,{ createPost })(PostsNew)
+    connect(mapStateToProps,{ fetchDentistsLastName })(PostsNew)
 );
