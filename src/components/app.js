@@ -7,9 +7,9 @@ class App extends Component {
 
     render(){
         return(
-            <div>
+            <div class="container">
                 <h1>Adopte Un Dentiste</h1>
-                <h2> Trouvez le dentiste qui vous correspond ! </h2>
+                <h3> Trouvez le dentiste qui vous correspond ! </h3>
                 <Form/>
                 <p>--------------------------------------------</p>
                 <ListResults/>
