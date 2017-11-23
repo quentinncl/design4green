@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
+import {connect} from 'react-redux';
 
 class Result extends Component {
 
@@ -11,6 +12,15 @@ class Result extends Component {
     }
 
     render() {
+
+        if (!this.props.dentists[0]) {
+            return <div>Loading...</div>
+        } else {
+            //console.log(this.props.dentists[0].email);
+            return <div>Hello {this.props.dentists[0].email}</div>
+        }
+
+
         const fullName = this.props.data.firstName + " " + this.props.data.lastName;
         const currDay = (new Date()).getDay();
         var currDayOpenings = "Today : ";
@@ -72,4 +82,8 @@ class Result extends Component {
     }
 }
 
-export default Result;
+function mapStateToProps({dentists}) {
+    return {dentists: dentists}
+}
+
+export default connect(mapStateToProps)(Result);
