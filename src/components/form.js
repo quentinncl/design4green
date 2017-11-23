@@ -90,6 +90,7 @@ class FormDentists extends Component {
 
         return (
             <form>
+                <h1>Adoptez un dentiste !</h1>
                 <Field
                     label="Last Name"
                     name="lastname"
