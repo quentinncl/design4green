@@ -1,20 +1,31 @@
 import React, {Component} from 'react';
-import Result from "./result";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {connect} from 'react-redux';
+import Result from "./result";
 
 class ListResults extends Component {
 
     render() {
-        return (
-            <MuiThemeProvider>
-                <div>
-                    {this.state.results.map(function(result) {
-                        return (<Result key={result.lastName} data={result}/>);
-                    })}
-                </div>
-            </MuiThemeProvider>
-        )
+
+        if (!this.props.dentists[0]) {
+            return <div>Loading...</div>
+        } else {
+
+            return (
+                <MuiThemeProvider>
+                    <div>
+                        {this.props.dentists.map(function (result) {
+                            return (<Result key={result.id} data={result}/>);
+                        })}
+                    </div>
+                </MuiThemeProvider>
+            )
+        }
     }
 }
 
-export default ListResults;
+function mapStateToProps({dentists}) {
+    return {dentists: dentists}
+}
+
+export default connect(mapStateToProps)(ListResults);
