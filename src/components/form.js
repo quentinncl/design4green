@@ -8,8 +8,7 @@ import {createPost} from '../actions/index';
 
 class Form extends Component {
 
-    renderField(field) {
-
+    static renderField(field) {
         const {meta: {touched, error}} = field;
         const className = `form-group ${touched && error ? 'has-danger' : ''}`;
 
@@ -29,13 +28,13 @@ class Form extends Component {
     }
 
     /* OPTIMISATION */
-    renderOptions() {
+    /*renderOptions() {
         return (
             this.state.days.map(function(day) {
                return <option value={day.value}>{day.label}</option>;
             })
         )
-    }
+    }*/
     /****************/
 
     render() {
