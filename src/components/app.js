@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
+import _ from 'lodash';
 import {connect} from 'react-redux';
-import FormDentists from './form';
-import ListResults from "./listResults";
+import {Link} from 'react-router-dom';
+import {fetchPosts} from "../actions/index";
+import Form from './form';
 
 class App extends Component {
 
@@ -9,10 +11,7 @@ class App extends Component {
         return(
             <div class="container">
                 <h1>Adopte Un Dentiste</h1>
-                <h3> Trouvez le dentiste qui vous correspond ! </h3>
-                <FormDentists/>
-                <p>----------------------------------</p>
-                <ListResults/>
+                <Form/>
             </div>
         );
     }

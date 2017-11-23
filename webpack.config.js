@@ -2,6 +2,7 @@ var webpack = require('webpack');
 var CompressionPlugin = require('compression-webpack-plugin');
 // var HTMLCompressionPlugin = require('html-compression-webpack-plugin');
 
+
 module.exports = {
     entry: [
         './src/index.js'
@@ -44,7 +45,11 @@ module.exports = {
         })*/
     ],
     resolve: {
-        extensions: ['', '.js', '.jsx']
+        extensions: ['', '.js', '.jsx'],
+        "alias":{
+            "react":"preact-compat",
+            "react-dom": "preact-compat"
+        }
     },
     devServer: {
         historyApiFallback: true,

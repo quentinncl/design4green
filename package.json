@@ -1,15 +1,13 @@
 {
-  "name": "redux-simple-starter",
+  "name": "adopte_un_dentiste",
   "version": "1.0.0",
-  "description": "Simple starter package for Redux with React and Babel support",
+  "description": "Let you find a dentist in a data base, depends on what you want for your dentist.",
   "main": "index.js",
-  "repository": "git@github.com:StephenGrider/ReduxSimpleStarter.git",
+  "repository": "git@gitlab.com:design4green/backend.git",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
-    "test:watch": "npm run test -- --watch"
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
   },
-  "author": "",
+  "author": "Amicones",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.2.1",
@@ -24,7 +22,7 @@
     "jsdom": "^8.1.0",
     "mocha": "^2.4.5",
     "react-addons-test-utils": "^0.14.7",
-    "webpack": "^1.13.3",
+    "webpack": "^1.15.0",
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
@@ -32,6 +30,8 @@
     "babel-preset-stage-1": "^6.1.18",
     "lodash": "^3.10.1",
     "material-ui": "^0.19.4",
+    "preact": "^8.2.6",
+    "preact-compat": "^3.17.0",
     "react": "^0.14.3",
     "react-cards": "^0.2.2",
     "react-dom": "^0.14.3",
