@@ -37,7 +37,7 @@ class FormDentists extends Component {
     renderField(field) {
         const className = `form-group`;
 
-        if (field.label=='Speciality'){
+        if (field.label=="Speciality"){
             return (
                 <div className={className}>
                     <label>{field.label} </label>
