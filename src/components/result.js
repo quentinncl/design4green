@@ -11,6 +11,19 @@ class Result extends Component {
         };
     }
 
+    renderOpenings() {
+        if (this.props.openings == "Unknown") {
+            return ("Monday : Unknown" + <br/> + " Tuesday : Unknown" + <br/> + "Wednesday : Unknown" + <br/> +
+                "Thursday : Unknown" + <br/> + "Friday : Unknown" + <br/> + "Friday : Unknown");
+        } else {
+            return ("Monday : " + this.props.data.openings.substring(0, 2) + ":00 - " + this.props.data.openings.substring(2, 4) + ":00" + <br/>
+                + "Tuesday : " + this.props.data.openings.substring(5, 7) + ":00 - " + this.props.data.openings.substring(7, 9) + ":00" + <br/>
+                + "Wednesday : " + this.props.data.openings.substring(10, 12) + ":00 - " +  this.props.data.openings.substring(12, 14) + ":00" + <br/>
+                + "Thursday : " + this.props.data.openings.substring(15, 17) + ":00 - " + this.props.data.openings.substring(17, 19) + ":00" + <br/>
+                + "Friday : " + this.props.data.openings.substring(20, 22) + ":00 - " + this.props.data.openings.substring(22, 24) + ":00" + <br/>);
+        }
+    }
+
     render() {
 
         if (!this.props.dentists[0]) {
@@ -59,9 +72,10 @@ class Result extends Component {
                     avatar="images/ok-128.jpg"
                 />
                 <CardText>
-                        Phone : {this.props.data.phone} <br/>
-                        Address : {this.props.data.address} <br/>
-                        City : {this.props.data.city}
+                    Address : {this.props.data.address} <br/>
+                    City : {this.props.data.city} <br/>
+                    Phone : {this.props.data.phone} <br/>
+                    Mail : {this.props.data.mail}
                 </CardText>
                 <CardHeader
                     title="Openings"
@@ -70,11 +84,7 @@ class Result extends Component {
                     showExpandableButton={true}
                 />
                 <CardText expandable={true}>
-                    Monday : {this.props.data.openings.substring(0,2)}:00 - {this.props.data.openings.substring(2,4)}:00<br/>
-                    Tuesday : {this.props.data.openings.substring(5,7)}:00 - {this.props.data.openings.substring(7,9)}:00<br/>
-                    Wednesday : {this.props.data.openings.substring(10,12)}:00 - {this.props.data.openings.substring(12,14)}:00<br/>
-                    Thursday : {this.props.data.openings.substring(15,17)}:00 - {this.props.data.openings.substring(17,19)}:00<br/>
-                    Friday : {this.props.data.openings.substring(20,22)}:00 - {this.props.data.openings.substring(22,24)}:00
+                    {this.renderOpenings}
                 </CardText>
 
             </Card>
