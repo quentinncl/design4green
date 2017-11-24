@@ -6,10 +6,19 @@ import {fetchDentists} from '../actions/index';
 
 import ListResult from './listResults';
 
+/**
+ * Form for searching dentists.
+ */
 class FormDentists extends Component {
+
+    /**
+     * Constructor of the component.
+     */
     constructor(props) {
         super(props);
 
+        //We put the different specialties in a JSON object.
+        //We have take it from the CSV file given, with a python script.
         this.state = {
             specialties: [
                 {'id': 0, 'value': 'Pediatric Dentistry'},
@@ -28,6 +37,11 @@ class FormDentists extends Component {
         this.renderField = this.renderField.bind(this);
     }
 
+    /**
+     * Method to build fields.
+     * @param field The field to build.
+     * @return the HTML element.
+     */
     renderField(field) {
 
         return (
@@ -43,10 +57,18 @@ class FormDentists extends Component {
         )
     }
 
+    /**
+     * Method called when hit the submit button.
+     * @param values the values to send to the API.
+     */
     onSubmit(values) {
         this.props.fetchDentists(values);
     }
 
+    /**
+     * Render method (compulsory).
+     * @return the HTML element.
+     */
     render() {
 
         const {handleSubmit} = this.props;
@@ -83,13 +105,6 @@ class FormDentists extends Component {
                             }
                         </Field>
                     </div>
-
-                    {/*<Field
-                        label="Openings"
-                        name="openings"
-                        type="date"
-                        component={this.renderField}
-                    />*/}
                     <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
                 <ListResult/>

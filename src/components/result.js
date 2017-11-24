@@ -3,11 +3,19 @@ import {Card, CardHeader, CardText} from 'material-ui/Card';
 import {connect} from 'react-redux';
 import Cookies from 'universal-cookie';
 
+/**
+ * Component for each result to a request.
+ */
 class Result extends Component {
 
+    /**
+     * Constructor.
+     * @param props
+     */
     constructor(props) {
         super(props);
 
+        //List of specialties, to show it dynamically in the results.
         this.state={specialties:[
             {id:0, label:"Pediatric Dentistry"},
             {id:1, label:"Unknown"},
@@ -30,6 +38,9 @@ class Result extends Component {
         }
     }
 
+    /**
+     * Method to build cookie, where we keep the dentists who have been contacted by the user.
+     */
     setCookie() {
         const cookies = new Cookies();
         let cookie = cookies.get('dentists');
@@ -38,6 +49,10 @@ class Result extends Component {
         cookies.set('dentists', cookie, { path: '/' });
     }
 
+    /**
+     * Render method (compulsory)
+     * @returns {XML} the HTML element.
+     */
     render() {
         const cookies = new Cookies();
         let fullName = "";
