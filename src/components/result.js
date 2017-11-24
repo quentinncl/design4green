@@ -113,10 +113,10 @@ class Result extends Component {
                     avatar={this.props.data.image}
                 />
                 <CardText>
-                    Address : {this.props.data.address} <br/>
-                    City : {this.props.data.city} <br/>
-                    Phone : <a href={`tel:${this.props.data.phone}`} onClick={this.setCookie}>{this.props.data.phone}</a> <br/>
-                    Mail : <a href={`mailto:${this.props.data.email}`} onClick={this.setCookie}>{this.props.data.email}</a>
+                    <b>Address</b> : {this.props.data.address} <br/>
+                    <b>City</b> : {this.props.data.city} <br/>
+                    <b>Phone</b> : <a href={`tel:${this.props.data.phone}`} onClick={this.setCookie}>{this.props.data.phone}</a> <br/>
+                    <b>Mail</b> : <a href={`mailto:${this.props.data.email}`} onClick={this.setCookie}>{this.props.data.email}</a>
                 </CardText>
                 <CardHeader
                     title="Openings"
