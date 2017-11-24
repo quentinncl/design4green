@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
-
 import {connect} from 'react-redux';
-import {fetchDentistsLastName} from '../actions/index';
+
+import {fetchDentists} from '../actions/index';
 
 import ListResult from './listResults';
 
@@ -10,9 +10,24 @@ class FormDentists extends Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            specialties: [
+                {'id': 0, 'value': 'Pediatric Dentistry'},
+                {'id': 2, 'value': 'Oral and Maxillofacial Radiology'},
+                {'id': 3, 'value': 'Endodontics'},
+                {'id': 4, 'value': 'Dental Public Health'},
+                {'id': 5, 'value': 'Periodontics'},
+                {'id': 6, 'value': 'Oral and Maxillofacial Pathology'},
+                {'id': 7, 'value': 'Oral and Maxillofacial Surgery'},
+                {'id': 8, 'value': 'Prosthodontics'},
+                {'id': 9, 'value': 'Orthodontics and Dentofacial Orthopedics'},
+                {'id': 1, 'value': 'Unknown'}
+            ]
+        };
+
         this.renderField = this.renderField.bind(this);
     }
-    
+
     renderField(field) {
         const className = `form-group`;
 
@@ -43,6 +58,7 @@ class FormDentists extends Component {
                     <input
                         className="form-control"
                         type={field.type}
+                        value=" "
                         {...field.input}
                     />
                 </div>
@@ -51,13 +67,12 @@ class FormDentists extends Component {
     }
 
     onSubmit(values) {
-        this.props.fetchDentistsLastName(values);
+        this.props.fetchDentists(values);
     }
 
     render() {
 
         const {handleSubmit} = this.props;
-        //this.props -> ensemble de propriété données par reduxForm
 
         return (
             <div>
@@ -65,7 +80,7 @@ class FormDentists extends Component {
                 <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
                     <Field
                         label="Last Name"
-                        name="lastname"
+                        name="last_name"
                         type="text"
                         component={this.renderField}
                     />
@@ -75,18 +90,29 @@ class FormDentists extends Component {
                         type="text"
                         component={this.renderField}
                     />
-                    <Field
-                        label="Speciality"
-                        name="speciality"
-                        type="text"
-                        component={this.renderField}
-                    />
-                    <Field
+                    <div className="form-group">
+                        <label>Specialty</label>
+                        <Field
+                            className="form-control custom-select"
+                            label="Specialty"
+                            name="specialty"
+                            component="select">
+                            {
+                                this.state.specialties.map((specialty) => {
+                                    return (
+                                        <option value={specialty.id}>{specialty.value}</option>
+                                    )
+                                })
+                            }
+                        </Field>
+                    </div>
+
+                    {/*<Field
                         label="Openings"
                         name="openings"
                         type="date"
                         component={this.renderField}
-                    />
+                    />*/}
                     <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
                 <ListResult/>
@@ -95,26 +121,14 @@ class FormDentists extends Component {
     }
 }
 
-function validate(values) {
-    //console.log(values) -> {title: blabla, categories: blabla, content: blabla}
-    const errors = {};
-
-    //Validate the input from values
-    if (!values.lastname || values.lastname.length < 3) {
-        errors.lastname = "Enter a lastname that is at least 3 characters";
-    }
-    if (!values.cities) {
-        errors.cities = "Enter a city";
-    }
-
-    return errors;
-    //if we return an empty object : all is good
-    //else we return the errors
-}
-
 export default reduxForm({
-    validate,
-    form: 'PostNewForm'
+    form: 'PostNewForm',
+    initialValues: {
+        lastname: '',
+        city: '',
+        speciality: '',
+        openings: ''
+    }
 })(
-    connect(null, {fetchDentistsLastName})(FormDentists)
+    connect(null, {fetchDentists})(FormDentists)
 );

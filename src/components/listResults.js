@@ -6,7 +6,11 @@ import Result from "./result";
 class ListResults extends Component {
 
     render() {
-        if (this.props.dentists[0]) {
+
+        if (!this.props.dentists[0]) {
+            return <div></div>
+        } else {
+            console.log(this.props.dentists);
             return (
                 <MuiThemeProvider>
                     <div>
