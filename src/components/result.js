@@ -115,7 +115,7 @@ class Result extends Component {
                     avatar={this.props.data.image}
                 />
                 <CardText>
-                    <b>Address</b> : {this.props.data.address} <br/>
+                    <b>Address</b> : <a href={`https://www.google.fr/maps/place/${this.props.data.address},${this.props.data.city}`} target="_blank">{this.props.data.address}</a> <br/>
                     <b>City</b> : {this.props.data.city} <br/>
                     <b>Phone</b> : <a href={`tel:${this.props.data.phone}`} onClick={this.setCookie}>{this.props.data.phone}</a> <br/>
                     <b>Mail</b> : <a href={`mailto:${this.props.data.email}`} onClick={this.setCookie}>{this.props.data.email}</a>
@@ -133,12 +133,9 @@ class Result extends Component {
                     {openings[3].day} : {openings[3].value} <br/>
                     {openings[4].day} : {openings[4].value}
                 </CardText>
-
             </Card>
         )
     }
 }
-
-
 
 export default Result;
