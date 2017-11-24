@@ -6,7 +6,7 @@ import promise from 'redux-promise';
 
 import reducers from './reducers';
 
-import App from './components/app';
+import FormDentists from './components/form';
 
 /**
  * Middleware used with redux and automate treatment of promise response.
@@ -16,6 +16,6 @@ const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers)}>
-        <App/>
+        <FormDentists/>
     </Provider>
     , document.querySelector('.container'));
