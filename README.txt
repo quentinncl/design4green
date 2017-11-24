@@ -1,43 +1,30 @@
-# PRESENTATION DU PROJET DES "AMICONES"
+README
 
-## OBJECTIF
+Equipe : AMICONES
 
-This project is our answer to the subject of the 2017 edition of the Hackathon "Design4Green".
+Les sources de ce challenge restent la propriété de l’équipe de développeurs AMICONES composée des membres suivants :
+Mélanie GEFFRE
+Jordan CALANDRE
+Quentin NICOLLE
+Jean-Baptiste PINET
 
-The subject is the following : __Develop a search engine within a web application.__
+AIDE :
 
-Concretely, we had to create a directory allowing the user to find a dentist and to contact him thanks to the informations provided.
-
-A provided file contains the informations about 1000 dentists with the following attributes :
-
-* Id
-* First name
-* Last name
-* Email
-* Gender
-* Address
-* City
-* Phone
-* Image
-* Openings
-* Specialty
-
-The search should be done through more than one criterion.
+Au moment d’effectuer la recherche, l’accès à l’API peut être bloqué par l’utilisation d’un proxy.
+Pour contourner ceci, il faut soit utiliser un VPN, soit un réseau téléphonique (4G).
 
 
-Les spécifications techniques supplémentaires sont les suivantes :
 
-* Special care should be taken with the user experience.
-* Data must be able to be used by other applications (eg the address must be able to be easily
-used by a navigation system).
-* The order of search results should be random.
-* A system must allow the user to identify the dentists he has already contacted.
+Team : AMICONES
 
+The sources of this challenge remain the property of the developers team AMICONES constituted by the following members :
+Mélanie GEFFRE
+Jordan CALANDRE
+Quentin NICOLLE
+Jean-Baptiste PINET
 
-## CHOIX FONCTIONNELS
+AIDE :
 
-## CHOIX TECHNOLOGIQUES
-
-## UTILISATION & AIDE
-
+When a research is performed, the API access may be blocked because of a proxy.
+To avoid this, it need to use either a VPN or a phone network (4G).
 
