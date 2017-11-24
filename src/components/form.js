@@ -29,10 +29,9 @@ class FormDentists extends Component {
     }
 
     renderField(field) {
-        const className = `form-group`;
 
         return (
-            <div className={className}>
+            <div className="form-group">
                 <label>{field.label} </label>
                 <input
                     className="form-control"
