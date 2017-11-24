@@ -30,6 +30,7 @@
     "babel-preset-stage-1": "^6.1.18",
     "lodash": "^3.10.1",
     "material-ui": "^0.19.4",
+    "object-diff": "0.0.4",
     "preact": "^8.2.6",
     "preact-compat": "^3.17.0",
     "react": "^0.14.3",

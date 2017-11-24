@@ -10,7 +10,7 @@ class ListResults extends Component {
         if (!this.props.dentists[0]) {
             return <div>Loading...</div>
         } else {
-
+            console.log(this.props.dentists);
             return (
                 <MuiThemeProvider>
                     <div>

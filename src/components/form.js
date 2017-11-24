@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
-
+import diff from 'object-diff';
 import {connect} from 'react-redux';
-import {fetchDentistsLastName} from '../actions/index';
+import {fetchDentistsLastName, fetchDentistsCity} from '../actions/index';
 
 import ListResult from './listResults';
 
@@ -50,14 +50,22 @@ class FormDentists extends Component {
         }
     }
 
-    onSubmit(values) {
-        this.props.fetchDentistsLastName(values);
+    onSubmit(values, dispatch, props) {
+        const { initialValues } = props;
+        const changedValues = diff(initialValues, values);
+        console.log(changedValues);
+
+        if(changedValues.lastname){
+            this.props.fetchDentistsLastName(changedValues);
+        }
+        if(changedValues.city){
+            this.props.fetchDentistsCity(changedValues);
+        }
     }
 
     render() {
 
         const {handleSubmit} = this.props;
-        //this.props -> ensemble de propriété données par reduxForm
 
         return (
             <div>
@@ -95,26 +103,14 @@ class FormDentists extends Component {
     }
 }
 
-function validate(values) {
-    //console.log(values) -> {title: blabla, categories: blabla, content: blabla}
-    const errors = {};
-
-    //Validate the input from values
-    if (!values.lastname || values.lastname.length < 3) {
-        errors.lastname = "Enter a lastname that is at least 3 characters";
-    }
-    if (!values.cities) {
-        errors.cities = "Enter a city";
-    }
-
-    return errors;
-    //if we return an empty object : all is good
-    //else we return the errors
-}
-
 export default reduxForm({
-    validate,
-    form: 'PostNewForm'
+    form: 'PostNewForm',
+    initialValues: {
+        lastname: '',
+        city:'',
+        speciality:'',
+        openings:''
+    }
 })(
-    connect(null, {fetchDentistsLastName})(FormDentists)
+    connect(null, {fetchDentistsLastName,fetchDentistsCity})(FormDentists)
 );
