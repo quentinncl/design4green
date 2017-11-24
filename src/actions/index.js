@@ -1,26 +1,22 @@
 import axios from 'axios';
 
-export const FETCH_DENTISTS_LASTNAME = 'FETCH_DENTISTS_LASTNAME';
-export const FETCH_DENTISTS_CITY = 'FETCH_DENTISTS_CITY';
+export const FETCH_DENTISTS = 'FETCH_DENTISTS';
 
-const ROOT_URL = 'http://127.0.0.1:5001/api';
+const ROOT_URL = 'http://51.254.37.175:8181/api';
 
-export function fetchDentistsLastName(lastname){
+export function fetchDentists(data){
+    let temp="";
+    Object.keys(data).forEach((key)=> {
 
-    const request = axios.get(`${ROOT_URL}/dentists/last_name/${lastname.lastname}`);
+            if(data[key])
+                temp+="/"+key+"/"+data[key]
+        });
 
-    return {
-        type: FETCH_DENTISTS_LASTNAME,
-        payload: request
-    }
-}
 
-export function fetchDentistsCity(city){
-
-    const request = axios.get(`${ROOT_URL}/dentists/city/${city.city}`);
+    const request = axios.get(`${ROOT_URL}/dentists${temp}`);
 
     return {
-        type: FETCH_DENTISTS_CITY,
+        type: FETCH_DENTISTS,
         payload: request
     }
 }

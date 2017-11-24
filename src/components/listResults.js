@@ -8,7 +8,7 @@ class ListResults extends Component {
     render() {
 
         if (!this.props.dentists[0]) {
-            return <div>Loading...</div>
+            return <div></div>
         } else {
             console.log(this.props.dentists);
             return (
