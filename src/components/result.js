@@ -96,12 +96,12 @@ class Result extends Component {
                 <CardHeader
                     title={fullName}
                     subtitle={this.state.specialties[this.props.data.specialty].label}
-                    avatar=""
+                    avatar={this.props.data.image}
                 />
                 <CardText>
                     Address : {this.props.data.address} <br/>
                     City : {this.props.data.city} <br/>
-                    Phone : {this.props.data.phone} <br/>
+                    Phone : <a href={`tel:${this.props.data.phone}`} onClick={this.setCookie}>{this.props.data.phone}</a> <br/>
                     Mail : <a href={`mailto:${this.props.data.email}`} onClick={this.setCookie}>{this.props.data.email}</a>
                 </CardText>
                 <CardHeader
