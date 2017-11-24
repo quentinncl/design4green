@@ -7,9 +7,7 @@ const ROOT_URL = 'http://51.254.37.175:5001/api';
 export function fetchDentistsLastName(lastname){
 
     const request = axios.get(`${ROOT_URL}/dentists/last_name/${lastname.lastname}`, {
-        headers: {
-            'Access-Control-Allow-Origin':'*',
-        },
+        crossdomain:true,
         proxy: {
             host: '51.254.37.175',
             port: 8181
