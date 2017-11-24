@@ -1,25 +1,43 @@
-# ReduxSimpleStarter
+# PRESENTATION DU PROJET DES "AMICONES"
 
-Interested in learning [Redux](https://www.udemy.com/react-redux/)?
+## OBJECTIF
 
-### Getting Started
+This project is our answer to the subject of the 2017 edition of the Hackathon "Design4Green".
 
-There are two methods for getting started with this repo.
+The subject is the following : __Develop a search engine within a web application.__
 
-#### Familiar with Git?
-Checkout this repo, install dependencies, then start the gulp process with the following:
+Concretely, we had to create a directory allowing the user to find a dentist and to contact him thanks to the informations provided.
 
-```
-> git clone https://github.com/StephenGrider/ReduxSimpleStarter.git
-> cd ReduxSimpleStarter
-> npm install
-> npm start
-```
+A provided file contains the informations about 1000 dentists with the following attributes :
 
-#### Not Familiar with Git?
-Click [here](https://github.com/StephenGrider/ReactStarter/releases) then download the .zip file.  Extract the contents of the zip file, then open your terminal, change to the project directory, and:
+* Id
+* First name
+* Last name
+* Email
+* Gender
+* Address
+* City
+* Phone
+* Image
+* Openings
+* Specialty
 
-```
-> npm install
-> npm start
-```
+The search should be done through more than one criterion.
+
+
+Les spécifications techniques supplémentaires sont les suivantes :
+
+* Special care should be taken with the user experience.
+* Data must be able to be used by other applications (eg the address must be able to be easily
+used by a navigation system).
+* The order of search results should be random.
+* A system must allow the user to identify the dentists he has already contacted.
+
+
+## CHOIX FONCTIONNELS
+
+## CHOIX TECHNOLOGIQUES
+
+## UTILISATION & AIDE
+
+

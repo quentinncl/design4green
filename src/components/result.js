@@ -24,7 +24,7 @@ class Result extends Component {
         this.setCookie = this.setCookie.bind(this);
 
         const cookies = new Cookies();
-        console.log(cookies.get('dentists'));
+
         if (cookies.get('dentists') == undefined) {
             cookies.set('dentists', "", { path: '/' });
         }
@@ -107,7 +107,7 @@ class Result extends Component {
                 <CardHeader
                     title="Openings"
                     subtitle={currDayOpenings}
-                    actAsExpander={true}
+                    actAsExpander={false}
                     showExpandableButton={true}
                 />
                 <CardText expandable={true}>
