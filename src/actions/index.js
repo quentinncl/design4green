@@ -3,14 +3,14 @@ import axios from 'axios';
 export const FETCH_DENTISTS = 'FETCH_DENTISTS';
 
 /**
- * variable with the address of the Python API
+ * variable with the address of the Python API.
  * @type {string}
  */
 const ROOT_URL = 'http://51.254.37.175:8181/api';
 
 /**
- * Action which ask to API informations we need
- * Dynamical construction of the URL
+ * Action which ask to API informations we need.
+ * Dynamical construction of the URL.
  * @param data
  * @returns {{type: string, payload: AxiosPromise<any>}}
  */

@@ -4,7 +4,7 @@ import DentistReduceur from './reducer_dentists';
 
 /**
  * Part of Redux Patern.
- * Will stored in client part
+ * Will stored in client part.
  * @type {Reducer<any>}
  */
 const rootReducer = combineReducers({

@@ -1,7 +1,7 @@
 import {FETCH_DENTISTS} from "../actions";
 
 /**
- * Reducer which will listen and wait the action from API
+ * Reducer which will listen and wait the action from API.
  * @param state
  * @param action
  * @returns {{}}

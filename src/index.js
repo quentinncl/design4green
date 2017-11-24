@@ -9,7 +9,7 @@ import reducers from './reducers';
 import App from './components/app';
 
 /**
- * Middleware used with redux and automate treatment of promise response
+ * Middleware used with redux and automate treatment of promise response.
  * @type {StoreEnhancerStoreCreator<StoreEnhancer<S>>}
  */
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
