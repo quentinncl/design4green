@@ -56,6 +56,7 @@ class Result extends Component {
         const cookies = new Cookies();
         let fullName = "";
 
+        //It checks if the dentist has been contacted before by the user using the cookie.
         if (cookies.get('dentists').indexOf(this.props.data.email) == -1) {
             fullName = this.props.data.first_name + " " + this.props.data.last_name;
         } else {
@@ -67,6 +68,7 @@ class Result extends Component {
         let currDayOpenings = "Today : ";
         let openings = "";
 
+        //It constructs the openings whether it's unknown or not.
         if (!(this.props.data.openings == "Unknown")) {
 
             switch (currDay) {
