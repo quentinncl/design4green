@@ -61,7 +61,7 @@ class FormDentists extends Component {
 
         return (
             <div>
-                <h1>Adoptez un dentiste !</h1>
+                <h1>Adopte un dentiste !</h1>
                 <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
                     <Field
                         label="Last Name"
