@@ -31,39 +31,17 @@ class FormDentists extends Component {
     renderField(field) {
         const className = `form-group`;
 
-        if (field.label == "Speciality") {
-            return (
-                <div className={className}>
-                    <label>{field.label} </label>
-                    <select className="form-control custom-select">
-                        <option selected>Select a speciality</option>
-                        <option value="0">Pediatric Dentistry</option>
-                        <option value="2">Oral and Maxillofacial Radiology</option>
-                        <option value="3">Endodontics</option>
-                        <option value="4">Dental Public Health</option>
-                        <option value="5">Periodontics</option>
-                        <option value="6">Oral and Maxillofacial Pathology</option>
-                        <option value="7">Oral and Maxillofacial Surgery</option>
-                        <option value="8">Prosthodontics</option>
-                        <option value="9">Orthodontics and Dentofacial Orthopedics</option>
-                        <option value="1">Unknown</option>
-                    </select>
-                </div>
-            );
-        }
-        else {
-            return (
-                <div className={className}>
-                    <label>{field.label} </label>
-                    <input
-                        className="form-control"
-                        type={field.type}
-                        value=" "
-                        {...field.input}
-                    />
-                </div>
-            )
-        }
+        return (
+            <div className={className}>
+                <label>{field.label} </label>
+                <input
+                    className="form-control"
+                    type={field.type}
+                    value=" "
+                    {...field.input}
+                />
+            </div>
+        )
     }
 
     onSubmit(values) {
