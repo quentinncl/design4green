@@ -6,25 +6,7 @@ const ROOT_URL = 'http://51.254.37.175:5001/api';
 
 export function fetchDentistsLastName(lastname){
 
-    const request = axios.get(`${ROOT_URL}/dentists/last_name/${lastname.lastname}`, {
-        crossdomain:true,
-        proxy: {
-            host: '51.254.37.175',
-            port: 8181
-        }}).then(function (response) {
-        console.log('response is : ' + response.data);
-    }).catch(function (error) {
-        if (error.response) {
-            console.log(error.response.headers);
-        }
-        else if (error.request) {
-            console.log(error.request);
-        }
-        else {
-            console.log(error.message);
-        }
-        console.log(error.config);
-    });
+    const request = axios.get(`${ROOT_URL}/dentists/last_name/${lastname.lastname}`);
 
     return {
         type: FETCH_DENTISTS_LASTNAME,
