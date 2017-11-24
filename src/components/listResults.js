@@ -16,8 +16,11 @@ class ListResults extends Component {
 
         if (!this.props.dentists[0]) {
             return <div></div>
-        } else {
-            console.log(this.props.dentists);
+        }
+        else if (!this.props.dentists) {
+            return <div>No dentists found ! Try again !</div>
+        }
+        else {
             return (
                 <MuiThemeProvider>
                     <div>

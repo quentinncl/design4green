@@ -28,9 +28,7 @@
   "dependencies": {
     "axios": "0.17.1",
     "babel-preset-stage-1": "^6.1.18",
-    "lodash": "^3.10.1",
     "material-ui": "^0.19.4",
-    "object-diff": "0.0.4",
     "preact": "^8.2.6",
     "preact-compat": "^3.17.0",
     "react": "^0.14.3",
@@ -38,7 +36,6 @@
     "react-dom": "^0.14.3",
     "react-redux": "4.3.0",
     "react-router": "^2.0.1",
-    "react-router-dom": "4.2.2",
     "redux": "^3.0.4",
     "redux-form": "6.6.3",
     "redux-promise": "0.5.3",

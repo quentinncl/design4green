@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
-import {connect} from 'react-redux';
 import Cookies from 'universal-cookie';
 
 /**

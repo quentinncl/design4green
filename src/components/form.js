@@ -70,9 +70,7 @@ class FormDentists extends Component {
      * @return the HTML element.
      */
     render() {
-
         const {handleSubmit} = this.props;
-
         return (
             <div>
                 <h1>Adopte un dentiste !</h1>
@@ -96,6 +94,7 @@ class FormDentists extends Component {
                             label="Specialty"
                             name="specialty"
                             component="select">
+                            <option value="">Select a specialty</option>
                             {
                                 this.state.specialties.map((specialty) => {
                                     return (
