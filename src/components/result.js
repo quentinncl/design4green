@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
 import {connect} from 'react-redux';
+import Cookies from 'universal-cookie';
 
 class Result extends Component {
 
@@ -19,12 +20,36 @@ class Result extends Component {
             {id:8, label:"Prosthodontics"},
             {id:9, label:"Orthodontics and Dentofacial Orthopedics"}
         ]};
+
+        this.setCookie = this.setCookie.bind(this);
+
+        const cookies = new Cookies();
+        console.log(cookies.get('dentists'));
+        if (cookies.get('dentists') == undefined) {
+            cookies.set('dentists', "", { path: '/' });
+        }
+    }
+
+    setCookie() {
+        const cookies = new Cookies();
+        let cookie = cookies.get('dentists');
+
+        cookie = cookie + this.props.data.email + ";";
+        cookies.set('dentists', cookie, { path: '/' });
     }
 
     render() {
+        const cookies = new Cookies();
+        let fullName = "";
 
-        const fullName = this.props.data.first_name + " " + this.props.data.last_name;
+        if (cookies.get('dentists').indexOf(this.props.data.email) == -1) {
+            fullName = this.props.data.first_name + " " + this.props.data.last_name;
+        } else {
+            fullName = this.props.data.first_name + " " + this.props.data.last_name + " - Contacted before";
+        }
+
         const currDay = (new Date()).getDay();
+
         let currDayOpenings = "Today : ";
         let openings = "";
 
@@ -77,7 +102,7 @@ class Result extends Component {
                     Address : {this.props.data.address} <br/>
                     City : {this.props.data.city} <br/>
                     Phone : {this.props.data.phone} <br/>
-                    Mail : {this.props.data.email}
+                    Mail : <a href={`mailto:${this.props.data.email}`} onClick={this.setCookie}>{this.props.data.email}</a>
                 </CardText>
                 <CardHeader
                     title="Openings"
